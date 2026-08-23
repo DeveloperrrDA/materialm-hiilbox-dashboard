@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 import FullLogo from "@/app/(DashboardLayout)/layout/shared/logo/FullLogo";
-import Navigation from "./Navigation";
+import { Leftnavigation, Rightnavigation } from "./Navigation";
 import MobileMenu from "./MobileMenu";
 
 const FrontHeader = () => {
@@ -36,10 +36,16 @@ const FrontHeader = () => {
         }`}
       >
         <div className="container-1218 mx-auto  flex justify-between items-center">
-          <FullLogo />
+          
           {/* <MobileDrawer/> */}
           <div className="xl:block hidden">
-            <Navigation />
+            <Leftnavigation />
+          </div>
+
+          <FullLogo />
+
+          <div className="xl:block hidden">
+            <Rightnavigation />
           </div>
 
           <Button asChild className="font-bold xl:flex hidden">

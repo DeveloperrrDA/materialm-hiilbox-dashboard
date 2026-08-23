@@ -27,7 +27,7 @@ export default function RootLayout({
         <head>
           <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         </head>
-        <body className={`${inter.className}`}>
+        <body className={`${inter.className}`} suppressHydrationWarning>
           <NextTopLoader color="#5d87ff" showSpinner={false} />
           <ThemeProvider
             attribute="class"

@@ -6,7 +6,7 @@ const FullLogo = () => {
     <Link href={"/"}>
       {/* Dark Logo   */}
       <Image
-        src={"/images/logos/dark-logo.svg"}
+        src={"https://cdn.hiilbox.com/2026/05/Hiilbox-logo-1.webp"}
         alt="logo"
         width={152}
         height={29}
@@ -14,7 +14,7 @@ const FullLogo = () => {
       />
       {/* Light Logo  */}
       <Image
-        src={"/images/logos/light-logo.svg"}
+        src={"https://cdn.hiilbox.com/2026/05/Hiilbox-logo-1.webp"}
         alt="logo"
         width={152}
         height={29}

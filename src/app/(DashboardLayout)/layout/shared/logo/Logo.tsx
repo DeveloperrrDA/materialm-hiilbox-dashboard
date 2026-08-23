@@ -7,7 +7,7 @@ const Logo = () => {
   return (
     <Link href={"/"}>
       <Image
-        src={"/images/logos/logo-icon.svg"}
+        src={"https://cdn.hiilbox.com/2026/05/Hiilbox-logo-1.webp"}
         alt="logo"
         width={40}
         height={30}

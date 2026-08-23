@@ -14,7 +14,7 @@ import {
 import { IconMenu2 } from "@tabler/icons-react";
 import Link from "next/link";
 import FullLogo from "@/app/(DashboardLayout)/layout/shared/logo/FullLogo";
-import Navigation from "./Navigation";
+import { Leftnavigation, Rightnavigation } from "./Navigation";
 const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -45,7 +45,8 @@ const MobileMenu = () => {
             </SheetHeader>
 
             <div className="flex flex-col gap-4">
-              <Navigation />
+              <Rightnavigation />
+              <Leftnavigation />
             </div>
 
             <SheetFooter className="p-0 mt-6">

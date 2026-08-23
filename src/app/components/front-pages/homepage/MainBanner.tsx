@@ -55,9 +55,9 @@ const MainBanner = () => {
         <div className="container-1218 mx-auto sm:pt-10 !pt-6 xl:pb-0 pb-10">
           <div className="grid grid-cols-12 gap-7 items-center ">
             <div className="xl:col-span-6 col-span-12 lg:text-start text-center">
-              <h1 className="lg:text-56 text-4xl text-dark dark:text-white font-medium lg:leading-[64px] leading-[50px]">
-                <b className="font-bold">A Feature-packed Dashboard</b> Built
-                For Developers' Needs.
+              <h1 className="lg:text-56 text-4xl text-dark dark:text-white font-bold lg:leading-[64px] leading-[50px]">
+                A Trusted Way<b className="font-bold text-green-600"> to </b> <b className="block">Raise Funds</b> 
+                <b className="text-green-600">Online | Hiilbox</b>
               </h1>
               <div className="sm:flex text-center mx-auto block items-center gap-3 lg:justify-start justify-center py-6">
                 <div className="flex flex-row-reverse lg:justify-start justify-center ps-3">

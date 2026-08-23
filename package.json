@@ -112,5 +112,11 @@
     "postcss": "^8.5.13",
     "tailwindcss": "^4.2.4",
     "typescript": "6"
+  },
+  "allowScripts": {
+    "@google/genai@1.52.0": true,
+    "core-js@3.49.0": true,
+    "inferno@7.4.11": true,
+    "protobufjs@7.5.6": true
   }
 }

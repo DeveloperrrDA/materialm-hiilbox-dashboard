@@ -102,7 +102,7 @@ export const Footer = () => {
             <div className="grid grid-cols-12 gap-7 ">
               <div className="lg:col-span-3 sm:col-span-6 col-span-12">
                 <Image
-                  src="/images/logos/light-logo.svg"
+                  src="https://cdn.hiilbox.com/2026/05/Hiilbox-logo-1.webp"
                   alt="logo"
                   className="mb-8"
                   width={150}
