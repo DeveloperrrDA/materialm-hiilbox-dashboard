@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -52,29 +52,28 @@ const MainBanner = () => {
   return (
     <>
       <div className="bg-lightgray dark:bg-darkgray">
-        <div className="container-1218 mx-auto sm:pt-10 !pt-6 xl:pb-0 pb-10">
-          <div className="grid grid-cols-12 gap-7 items-center ">
+        <div className="container-1218 mx-auto sm:pt-10 pt-6 xl:pb-6 pb-10">
+          <div className="grid grid-cols-12 gap-7 items-center py-10">
             <div className="xl:col-span-6 col-span-12 lg:text-start text-center">
+              <div className="flex justify-self-start rounded-full text-green-600 bg-green-100 px-5 py-2.5 gap-1 mb-5">
+                <Icon
+                  icon="material-symbols:shield-outline-rounded"
+                  height={22}
+                  className="text-green-600"
+                />
+                <h1 className="text-20 font-bold text-inherit">
+                  Somali Crowdfunding Platform
+                </h1>
+                
+              </div>
               <h1 className="lg:text-56 text-4xl text-dark dark:text-white font-bold lg:leading-[64px] leading-[50px]">
                 A Trusted Way<b className="font-bold text-green-600"> to </b> <b className="block">Raise Funds</b> 
                 <b className="text-green-600">Online | Hiilbox</b>
               </h1>
-              <div className="sm:flex text-center mx-auto block items-center gap-3 lg:justify-start justify-center py-6">
-                <div className="flex flex-row-reverse lg:justify-start justify-center ps-3">
-                  {userImg.map((item, index) => (
-                    <div className="-ms-3 h-10 w-10 relative z-5" key={index}>
-                      <Image
-                        src={item.user}
-                        className="border-2 border-white dark:border-darkborder rounded-full"
-                        alt="icon"
-                        width={40}
-                        height={40}
-                      />
-                    </div>
-                  ))}
-                </div>
+              <div className="sm:flex mx-auto block items-center gap-3 lg:justify-start justify-center py-6">
+                
                 <h5 className="text-base text-ld font-medium opacity-80 md:pt-0 pt-3">
-                  52,589+ developers & agencies using our templates
+                  A transparent crowdfunding platform that lets people help each other and create meaningful impact through secure and transparent donations.
                 </h5>
               </div>
               <ul className="flex flex-wrap lg:justify-start justify-center gap-5 pb-7 md:pt-4 ml-0">
@@ -107,16 +106,17 @@ const MainBanner = () => {
                   className=" font-bold sm:w-fit w-full rounded-full"
                   size="lg"
                 >
-                  <Link href="/auth/auth2/login">Log in</Link>
+                  <Link href="/auth/auth2/login">Start Fundraising Now</Link>
                 </Button>
               </div>
             </div>
             <div className="lg:col-span-6 col-span-12 xl:block hidden">
-              <div className="min-w-[1300px] max-h-[700px] h-[calc(100vh_-_100px)] overflow-hidden ">
+              <div className=" overflow-hidden ">
                 <Image
-                  src="/images/front-pages/background/main-banner.webp"
-                  className="rtl:scale-x-[-1]"
+                  src="https://cdn.hiilbox.com/2026/06/A-Trusted-Way-to-Raise-Funds-Online-Hiilbox.webp"
+                  className="rtl:scale-x-[-1] rounded-[20px]"
                   alt="banner"
+                  loading="eager"
                   width={1144}
                   height={710}
                 />

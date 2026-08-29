@@ -23,7 +23,7 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import { useTheme } from "next-themes";
+import { useTheme } from "@teispace/next-themes";
 
 export const Customizer = () => {
   const [isOpen, setIsOpen] = useState(false);

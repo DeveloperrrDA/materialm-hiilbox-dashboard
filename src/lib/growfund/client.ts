@@ -1,4 +1,4 @@
-import { config } from '@/lib/config';
+import { config } from "@/lib/config";
 
 export class GrowfundApiError extends Error {
   status: number;
@@ -10,8 +10,7 @@ export class GrowfundApiError extends Error {
     data?: unknown
   ) {
     super(message);
-
-    this.name = 'GrowfundApiError';
+    this.name = "GrowfundApiError";
     this.status = status;
     this.data = data;
   }
@@ -27,21 +26,18 @@ export async function growfundFetch<T>(
 ): Promise<T> {
   const { token, headers, ...requestOptions } = options;
 
-  const url = `${config.wordpressUrl}${endpoint}`;
+  const url = `${config.growfundApiBaseUrl}${endpoint}`;
 
   const response = await fetch(url, {
     ...requestOptions,
-
     headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-
+      "Content-Type": "application/json",
+      Accept: "application/json",
       ...(token
         ? {
             Authorization: `Bearer ${token}`,
           }
         : {}),
-
       ...headers,
     },
   });

@@ -8,6 +8,11 @@ export interface AuthUser {
   roles: string[];
 }
 
+export interface SystemTokenResponse {
+  success: boolean;
+  system_token: string;
+}
+
 export interface LoginRequest {
   username: string;
   password: string;

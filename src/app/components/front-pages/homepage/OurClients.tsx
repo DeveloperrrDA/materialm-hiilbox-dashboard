@@ -4,31 +4,24 @@ import { Icon } from "@iconify/react";
 const Feature = [
   {
     icon: "tabler:chart-bubble",
-    title: "Expert Advisor",
-    subtitle: "Suspendisse vestibulum eu erat ac scelerisque.",
+    title: "Active Campaigns",
+    subtitle: "Campaigns currently making a difference in people’s lives.",
     bgcolor: "bg-lighterror",
     color: "text-error",
   },
   {
     icon: "tabler:building-store",
-    title: "Effective Support",
-    subtitle: "Suspendisse vestibulum eu erat ac scelerisque.",
+    title: "Funds Raised",
+    subtitle: "Total funds raised to support causes that matter.",
     bgcolor: "bg-lightprimary",
     color: "text-primary",
   },
   {
     icon: "material-symbols:category-outline",
-    title: "Low Fees",
-    subtitle: "Suspendisse vestibulum eu erat ac scelerisque.",
+    title: "Donors",
+    subtitle: "Generous people supporting change and creating impact.",
     bgcolor: "bg-lightsuccess",
     color: "text-success",
-  },
-  {
-    icon: "material-symbols:earthquake",
-    title: "Loan Facility",
-    subtitle: "Suspendisse vestibulum eu erat ac scelerisque.",
-    bgcolor: "bg-lightgray dark:bg-darkgray",
-    color: "text-dark dark:text-white",
   },
 ];
 
@@ -37,14 +30,13 @@ const OurClients = () => {
     <>
       <div className="lg:py-24 py-12 dark:bg-dark">
         <div className="container-1218 mx-auto">
-          <div className="grid grid-cols-12 gap-7">
-            <div className="lg:col-span-5 col-span-12">
-              <h2 className="sm:text-44 text-3xl font-bold !leading-[48px] text-dark dark:text-white">
-                Over 45,000 clients and counting.
+          <div className="flex flex-col gap-7">
+            <div className="flex flex-col items-center basis-full">
+              <h2 className="sm:text-44 text-3xl font-bold !leading-[48px] text-dark dark:text-white text-center">
+                Together, We Build <span className="text-green-600">Stronger Communities</span>
               </h2>
               <p className="text-base leading-8 text-darklink  opacity-80 py-6">
-                Pellentesque varius semper odio non pretium. Nullam sagittis
-                neque orci, eu elementum enim.
+                Hiilbox is your trusted home for Somali crowdfunding, connecting everyday donors and changemakers to create real, lasting impact.
               </p>
               <Link
                 href={"/"}
@@ -53,10 +45,10 @@ const OurClients = () => {
                 Request a Callback
               </Link>
             </div>
-            <div className="lg:col-span-7 col-span-12 lg:ps-5 ">
+            <div className="flex pt-10">
               <div className="grid grid-cols-12 md:gap-12 gap-6">
                 {Feature.map((item, index) => (
-                  <div className="md:col-span-6 col-span-12" key={index}>
+                  <div className="md:col-span-4 col-span-12" key={index}>
                     <div
                       className={`h-12 w-12 flex-shrink-0 flex items-center justify-center rounded-xl ${item.bgcolor}`}
                     >

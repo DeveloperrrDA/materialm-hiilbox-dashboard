@@ -2,7 +2,7 @@
 import { createContext, useState, ReactNode, useEffect } from "react";
 import config from "../config";
 import React from "react";
-import { useTheme } from "next-themes";
+import { useTheme } from "@teispace/next-themes";
 
 // Define the shape of the context state
 interface CustomizerContextState {

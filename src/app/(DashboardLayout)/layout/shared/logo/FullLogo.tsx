@@ -9,8 +9,8 @@ const FullLogo = () => {
         src={"https://cdn.hiilbox.com/2026/05/Hiilbox-logo-1.webp"}
         alt="logo"
         width={152}
-        height={29}
-        className="block dark:hidden rtl:scale-x-[-1]"
+        height= {29}
+        className="block dark:hidden rtl:scale-x-[-1] width:auto height:auto"
       />
       {/* Light Logo  */}
       <Image
@@ -18,7 +18,7 @@ const FullLogo = () => {
         alt="logo"
         width={152}
         height={29}
-        className="hidden dark:block rtl:scale-x-[-1]"
+        className="hidden dark:block rtl:scale-x-[-1] width:auto height:auto"
       />
     </Link>
   );
