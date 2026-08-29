@@ -11,6 +11,7 @@ import { Packages } from "@/app/components/front-pages/homepage/Packages";
 import { PaymentOptions } from "@/app/components/front-pages/homepage/Payments";
 import PurchaseTemp from "@/app/components/front-pages/homepage/PurchaseTemp";
 import CampaignGrid from "@/app/components/front-pages/CampaignGrid";
+import CampaignGridFeatured from "@/app/components/front-pages/CampaignGridFeatured";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -22,16 +23,10 @@ const page = () => {
     <>
       <MainBanner />
       <Highlights />
-      <CampaignGrid />
+      <CampaignGridFeatured />
       <OurClients />
-      <FeatureTabs />
-      <OurTeam />
-      <ContactBar />
-      <ClientReviews />
+      <CampaignGrid />
       <Companies />
-      <Packages />
-      <PaymentOptions />
-      <FAQ/>
       <PurchaseTemp/>
     </>
   );

@@ -43,55 +43,40 @@ export const Footer = () => {
   const navLinks2 = [
     {
       key: "link1",
-      title: "Banners",
+      title: "How to start HiilBox",
       link: "/widgets/banners",
     },
     {
       key: "link2",
-      title: "Charts",
+      title: "Explore Categories",
       link: "/widgets/charts",
     },
     {
       key: "link3",
-      title: "Headless Radio",
+      title: "How it Works?",
       link: "/headless-form/radiogroup",
-    },
-    {
-      key: "link4",
-      title: "Gallery",
-      link: "/apps/user-profile/gallery",
-    },
-    {
-      key: "link5",
-      title: "Buttons",
-      link: "/shadcn-ui/buttons",
     },
   ];
   const navLinks3 = [
     {
       key: "link1",
-      title: "Form Layouts",
+      title: "About Us",
       link: "/forms/form-layouts",
     },
     {
       key: "link2",
-      title: "Tables",
+      title: "Articles & News",
       link: "/tables/basic",
     },
     {
       key: "link3",
-      title: "React Table",
+      title: "Team",
       link: "/react-tables/basic",
     },
     {
       key: "link4",
-      title: "Form Elements",
+      title: "Contact Us",
       link: "/forms/form-elements",
-    },
-    {
-      key: "link5",
-      title: "Validation",
-      link: "/forms/form-validation",
     },
   ];
   return (
@@ -99,69 +84,22 @@ export const Footer = () => {
       <div className="bg-dark">
         <div className="container-1218 mx-auto ">
           <div className="border-b border-darkborder lg:py-24 py-12">
-            <div className="grid grid-cols-12 gap-7 ">
-              <div className="lg:col-span-3 sm:col-span-6 col-span-12">
+            <div className="grid grid-cols-12 gap-10 ">
+              <div className="lg:col-span-4 sm:col-span-6 col-span-12">
                 <Image
                   src="https://cdn.hiilbox.com/2026/05/Hiilbox-logo-1.webp"
                   alt="logo"
-                  className="mb-8"
+                  className="mb-5"
                   width={150}
                   height={40}
                 />
                 <div className="flex flex-col gap-4">
-                  {navLinks1.map((item) => {
-                    return (
-                      <Link
-                        key={item.key}
-                        href={item.link}
-                        className="text-sm text-lightmuted hover:text-primary block"
-                      >
-                        {item.title}
-                      </Link>
-                    );
-                  })}
+                  <p className="text-base leading-8 text-darklink  opacity-80 py-6">
+                    Hiilbox is a trusted Somali crowdfunding platform that helps people raise funds for medical needs, education, emergencies, 
+                    community projects, and charitable causes. By bringing communities together, Hiilbox makes it easy for people to help each 
+                    other and create meaningful impact through secure and transparent fundraising.
+                  </p>
                 </div>
-              </div>
-              <div className="lg:col-span-3 sm:col-span-6 col-span-12">
-                <h4 className="text-17 text-white font-semibold mb-8">
-                  Features
-                </h4>
-                <div className="flex flex-col gap-4">
-                  {navLinks2.map((item) => {
-                    return (
-                      <Link
-                        key={item.key}
-                        href={item.link}
-                        className="text-sm text-lightmuted hover:text-primary block"
-                      >
-                        {item.title}
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-              <div className="lg:col-span-3 sm:col-span-6 col-span-12">
-                <h4 className="text-17 text-white font-semibold mb-8">
-                  Resources
-                </h4>
-                <div className="flex flex-col gap-4">
-                  {navLinks3.map((item) => {
-                    return (
-                      <Link
-                        key={item.key}
-                        href={item.link}
-                        className="text-sm text-lightmuted hover:text-primary block"
-                      >
-                        {item.title}
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-              <div className="lg:col-span-3 sm:col-span-6 col-span-12">
-                <h4 className="text-17 text-white font-semibold mb-8">
-                  Follow us
-                </h4>
                 <div className="flex items-center gap-5">
                   <TooltipProvider>
                     <Tooltip>
@@ -218,6 +156,48 @@ export const Footer = () => {
                     </Tooltip>
                   </TooltipProvider>
                 </div>
+              </div>
+              <div className="lg:col-span-2 sm:col-span-6 col-span-12">
+                <h4 className="text-17 text-white font-semibold mb-8">
+                  Fundraise
+                </h4>
+                <div className="flex flex-col gap-4">
+                  {navLinks2.map((item) => {
+                    return (
+                      <Link
+                        key={item.key}
+                        href={item.link}
+                        className="text-sm text-lightmuted hover:text-primary block"
+                      >
+                        {item.title}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+              <div className="lg:col-span-2 sm:col-span-6 col-span-12">
+                <h4 className="text-17 text-white font-semibold mb-8">
+                  Resources
+                </h4>
+                <div className="flex flex-col gap-4">
+                  {navLinks3.map((item) => {
+                    return (
+                      <Link
+                        key={item.key}
+                        href={item.link}
+                        className="text-sm text-lightmuted hover:text-primary block"
+                      >
+                        {item.title}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+              <div className="lg:col-span-4 sm:col-span-6 col-span-12">
+                <h4 className="text-17 text-white font-semibold mb-8">
+                  Follow us
+                </h4>
+                
               </div>
             </div>
           </div>

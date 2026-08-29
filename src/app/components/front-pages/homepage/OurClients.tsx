@@ -3,32 +3,35 @@ import Link from "next/link";
 import { Icon } from "@iconify/react";
 const Feature = [
   {
-    icon: "tabler:chart-bubble",
+    icon: "tabler:rocket",
+    number: "10",
     title: "Active Campaigns",
     subtitle: "Campaigns currently making a difference in people’s lives.",
-    bgcolor: "bg-lighterror",
-    color: "text-error",
+    bgcolor: "bg-lightprimary",
+    color: "text-primary",
   },
   {
-    icon: "tabler:building-store",
+    icon: "tabler:coin",
+    number: "120K",
     title: "Funds Raised",
     subtitle: "Total funds raised to support causes that matter.",
     bgcolor: "bg-lightprimary",
     color: "text-primary",
   },
   {
-    icon: "material-symbols:category-outline",
+    icon: "tabler:users",
+    number: "400",
     title: "Donors",
     subtitle: "Generous people supporting change and creating impact.",
-    bgcolor: "bg-lightsuccess",
-    color: "text-success",
+    bgcolor: "bg-lightprimary",
+    color: "text-primary",
   },
 ];
 
 const OurClients = () => {
   return (
     <>
-      <div className="lg:py-24 py-12 dark:bg-dark">
+      <div className="bg-lightgray dark:bg-darkgray lg:py-24 py-12 dark:bg-dark">
         <div className="container-1218 mx-auto">
           <div className="flex flex-col gap-7">
             <div className="flex flex-col items-center basis-full">
@@ -46,11 +49,11 @@ const OurClients = () => {
               </Link>
             </div>
             <div className="flex pt-10">
-              <div className="grid grid-cols-12 md:gap-12 gap-6">
+              <div className="grid grid-cols-12 justify-items-center md:gap-12 gap-6">
                 {Feature.map((item, index) => (
-                  <div className="md:col-span-4 col-span-12" key={index}>
+                  <div className="md:col-span-4 col-span-12" justify-items-center key={index}>
                     <div
-                      className={`h-12 w-12 flex-shrink-0 flex items-center justify-center rounded-xl ${item.bgcolor}`}
+                      className={`h-12 w-12 flex-shrink-0 flex items-center justify-center justify-self-center rounded-xl ${item.bgcolor}`}
                     >
                       <Icon
                         icon={item.icon}
@@ -58,10 +61,13 @@ const OurClients = () => {
                         height={24}
                       />
                     </div>
-                    <h4 className="font-bold text-dark dark:text-white py-5 text-xl">
+                    <p className="font-light text-dark text-center dark:text-white pt-5 text-xl">
+                      {item.number}
+                    </p>
+                    <h4 className="font-bold text-dark text-center dark:text-white  text-xl">
                       {item.title}
                     </h4>
-                    <p className="text-base text-darklink md:pt-2 leading-6">
+                    <p className="text-base text-darklink text-center md:pt-2 leading-6">
                       {item.subtitle}
                     </p>
                   </div>

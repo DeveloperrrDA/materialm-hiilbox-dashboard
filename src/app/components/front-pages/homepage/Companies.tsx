@@ -2,43 +2,77 @@ import Image from "next/image";
 
 const companies = [
   {
-    img: "/images/front-pages/componies/intel.svg",
+    img: "https://cdn.hiilbox.com/2026/06/Kaash-Plus-Payment-Method.webp",
+    key: "paymentMethod1",
   },
   {
-    img: "/images/front-pages/componies/oracle.svg",
+    img: "https://cdn.hiilbox.com/2026/06/Sahal-Payment-Method.webp",
+    key: "paymentMethod2",
   },
   {
-    img: "/images/front-pages/componies/dell.svg",
+    img: "https://cdn.hiilbox.com/2026/06/My-Cash-Payment-Method.webp",
+    key: "paymentMethod3",
   },
   {
-    img: "/images/front-pages/componies/samsung.svg",
+    img: "https://cdn.hiilbox.com/2026/06/Premier-Wallet-Payment-Method.webp",
+    key: "paymentMethod4",
   },
   {
-    img: "/images/front-pages/componies/infosys.svg",
+    img: "https://cdn.hiilbox.com/2026/06/Apple-Pay-Payment-Method.webp",
+    key: "paymentMethod15",
   },
   {
-    img: "/images/front-pages/componies/capgemini.svg",
+    img: "https://cdn.hiilbox.com/2026/06/Google-Pay-Payment-Method.webp",
+    key: "paymentMethod6",
+  },
+  {
+    img: "https://cdn.hiilbox.com/2026/06/MasterCard-Payment-Method.webp",
+    key: "paymentMethod7",
+  },
+  {
+    img: "https://cdn.hiilbox.com/2026/06/Visa-Payment-Method.webp",
+    key: "paymentMethod8",
+  },
+  {
+    img: "https://cdn.hiilbox.com/2026/06/Zaad-Payment-Method.webp",
+    key: "paymentMethod9",
+  },
+  {
+    img: "https://cdn.hiilbox.com/2026/06/eDahab-Payment-Method.webp",
+    key: "paymentMethod10",
+  },
+  {
+    img: "https://cdn.hiilbox.com/2026/06/EVC-Plus-Payment-Method.webp",
+    key: "paymentMethod11",
+  },
+  {
+    img: "https://cdn.hiilbox.com/2026/06/Jeeb-Payment-Method.webp",
+    key: "paymentMethod12",
   },
 ];
 const Companies = () => {
   return (
     <>
       <div className="dark:bg-dark">
-        <div className="container-1218 mx-auto ">
-          <div className="border-ld border-t lg:pt-14 pt-7">
-            <div className="flex flex-wrap md:justify-between justify-center  items-center gap-4">
-              {companies.map((item, index) => (
-                <div key={index} className="">
-                  <Image
-                    src={item.img}
-                    alt="company"
-                    width={140}
-                    height={20}
-                    className="h-fit w-fit"
-                  />
+        <div className="container-full mx-auto ">
+          <div className="border-ld border-t lg:py-14 py-7 marquee1-group flex gap-6">
+            {[0].map((item,index) => {
+                return (
+                <div key={index} className="flex md:justify-between justify-center  items-center gap-4">
+                  {companies.map((item) => (
+                    <div key={item.key} className="">
+                      <Image
+                        src={item.img}
+                        alt="company"
+                        width={190}
+                        height={100}
+                        className="h-auto w-auto"
+                      />
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              );
+            })}
           </div>
         </div>
       </div>

@@ -10,50 +10,12 @@ import {
 } from "@/components/ui/tooltip";
 
 const MainBanner = () => {
-  const userImg = [
-    {
-      user: "/images/profile/user-2.jpg",
-    },
-    {
-      user: "/images/profile/user-3.jpg",
-    },
-    {
-      user: "/images/profile/user-4.jpg",
-    },
-  ];
-
-  const Technology = [
-    {
-      tech: "/images/front-pages/technology/react.svg",
-      tooltip: "React",
-    },
-
-    {
-      tech: "/images/front-pages/technology/nextjs.svg",
-      tooltip: "Next.js",
-    },
-    {
-      tech: "/images/front-pages/technology/typescript.svg",
-      tooltip: "Typescript",
-    },
-    {
-      tech: "/images/front-pages/technology/tailwind.svg",
-      tooltip: "Tailwind css",
-    },
-    {
-      tech: "/images/front-pages/technology/headless-ui.svg",
-      tooltip: "Headless Ui",
-    },
-    {
-      tech: "/images/front-pages/technology/shadcn.svg",
-      tooltip: "Shadcn Ui",
-    },
-  ];
+  
   return (
     <>
       <div className="bg-lightgray dark:bg-darkgray">
         <div className="container-1218 mx-auto sm:pt-10 pt-6 xl:pb-6 pb-10">
-          <div className="grid grid-cols-12 gap-7 items-center py-10">
+          <div className="grid grid-cols-12 gap-7 items-center py-20">
             <div className="xl:col-span-6 col-span-12 lg:text-start text-center">
               <div className="flex justify-self-start rounded-full text-green-600 bg-green-100 px-5 py-2.5 gap-1 mb-5">
                 <Icon
@@ -76,31 +38,6 @@ const MainBanner = () => {
                   A transparent crowdfunding platform that lets people help each other and create meaningful impact through secure and transparent donations.
                 </h5>
               </div>
-              <ul className="flex flex-wrap lg:justify-start justify-center gap-5 pb-7 md:pt-4 ml-0">
-                <TooltipProvider delayDuration={100}>
-                  {Technology.map((item, index) => (
-                    <Tooltip key={index}>
-                      <TooltipTrigger asChild>
-                        <li
-                          key={index}
-                          className="md:h-14 md:w-14 h-10 w-10 bg-white dark:bg-darkmuted rounded-[16px] flex justify-center items-center shadow-elevation1 cursor-pointer"
-                        >
-                          <Image
-                            src={item.tech}
-                            alt="icon"
-                            height={28}
-                            width={28}
-                            className="md:h-7 h-5"
-                          />
-                        </li>
-                      </TooltipTrigger>
-                      <TooltipContent side="bottom" className="text-xs">
-                        {item.tooltip}
-                      </TooltipContent>
-                    </Tooltip>
-                  ))}
-                </TooltipProvider>
-              </ul>
               <div className="flex lg:justify-start justify-center">
                 <Button
                   className=" font-bold sm:w-fit w-full rounded-full"
