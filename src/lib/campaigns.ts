@@ -178,15 +178,66 @@ export interface GetCampaignsParams {
   status?: string;
 }
 
+
+function parseMaybeJson(value: unknown): any {
+  if (typeof value !== "string") return value;
+  const trimmed = value.trim();
+  if (!trimmed) return value;
+  if ((trimmed.startsWith("[") && trimmed.endsWith("]")) || (trimmed.startsWith("{") && trimmed.endsWith("}"))) {
+    try { return JSON.parse(trimmed); } catch { return value; }
+  }
+  return value;
+}
+
+function absoluteImageUrl(value: unknown): string {
+  if (!value) return "";
+  const parsed = parseMaybeJson(value);
+  if (typeof parsed !== "string") return "";
+  const url = parsed.trim();
+  if (!url) return "";
+  if (/^https?:\/\//i.test(url)) return url;
+  const wp = (process.env.NEXT_PUBLIC_WORDPRESS_URL || "https://cms.hiilbox.com").replace(/\/$/, "");
+  return `${wp}/${url.replace(/^\//, "")}`;
+}
+
+function normalizeCampaignImages(raw: any): CampaignImage[] {
+  const parsed = parseMaybeJson(raw?.images);
+  if (Array.isArray(parsed)) return parsed;
+  if (parsed && typeof parsed === "object") return Object.values(parsed) as CampaignImage[];
+  return [];
+}
+
+function campaignImageUrl(raw: any, images: CampaignImage[]): string {
+  const first: any = images[0] ?? null;
+  const candidates = [
+    raw?.image_url,
+    raw?.featured_image_url,
+    raw?.featured_image,
+    raw?.thumbnail_url,
+    raw?.thumbnail,
+    typeof raw?.image === "string" ? raw.image : null,
+    raw?.image?.url,
+    raw?.image?.src,
+    first?.url,
+    first?.src,
+    first?.sizes?.large?.url,
+    first?.sizes?.medium?.url,
+    first?.sizes?.woocommerce_thumbnail?.url,
+    first?.thumb,
+  ];
+  for (const candidate of candidates) {
+    const url = absoluteImageUrl(candidate);
+    if (url) return url;
+  }
+  return "";
+}
+
 /**
  * Normalize a raw campaign from the WordPress/GrowFund API
  * into the structure expected by the Next.js frontend.
  */
 function normalizeCampaign(raw: any): Campaign {
-  const firstImage =
-    Array.isArray(raw?.images) && raw.images.length > 0
-      ? raw.images[0]
-      : null;
+  const normalizedImages = normalizeCampaignImages(raw);
 
   const fundraiser =
     raw?.fundraiser ??
@@ -222,11 +273,7 @@ function normalizeCampaign(raw: any): Campaign {
       0
     ),
 
-    image_url:
-      firstImage?.url ??
-      firstImage?.sizes?.medium?.url ??
-      firstImage?.sizes?.woocommerce_thumbnail?.url ??
-      "",
+    image_url: campaignImageUrl(raw, normalizedImages),
 
     fundraiser_name:
       fundraiser?.display_name ||
@@ -257,10 +304,7 @@ function normalizeCampaign(raw: any): Campaign {
       raw?.status ??
       "",
 
-    images:
-      Array.isArray(raw?.images)
-        ? raw.images
-        : [],
+    images: normalizedImages,
 
     video:
       raw?.video ??
