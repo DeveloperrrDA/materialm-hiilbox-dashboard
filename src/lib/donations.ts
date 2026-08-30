@@ -2,6 +2,7 @@ export interface CheckoutGateway {
   id: string;
   title: string;
   description?: string;
+  icon?: string;
   enabled?: boolean;
   requires_account?: boolean;
 }
@@ -45,6 +46,7 @@ export interface CheckoutResult {
   redirect_url?: string | null;
   redirect?: string | null;
   order_key?: string;
+  nextjs_success_path?: string | null;
 }
 
 async function json<T>(response: Response): Promise<T> {

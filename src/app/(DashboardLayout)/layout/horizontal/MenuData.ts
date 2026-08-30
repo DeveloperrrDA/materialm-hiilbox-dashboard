@@ -16,7 +16,7 @@ const Menuitems = [
         id: uniqueId(),
         title: " eCommerce",
         icon: 'solar:widget-add-line-duotone',
-        href: "/",
+        href: "/dashboard",
       },
       {
         id: uniqueId(),
