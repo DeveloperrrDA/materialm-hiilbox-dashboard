@@ -60,13 +60,17 @@ export default function ShareCampaign({
   }
 
   return (
-    <div className="mt-8">
+    <div className="mt-8 flex basis-full flex-row items-center justify-between">
 
       <p className="text-sm font-semibold text-gray-900">
         Share this campaign
       </p>
 
-      <div className="mt-4 flex items-center gap-3">
+      <div>
+        <hr className="border-t border-gray-300 my-4" />
+      </div>
+
+      <div className="flex items-center justify-self-end gap-3">
 
         <button
           type="button"

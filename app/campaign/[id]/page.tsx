@@ -56,6 +56,14 @@ export default async function CampaignPage({
         )
       : 0;
 
+    // --- ADD THIS SVG MATH HERE ---
+    const size = 100; // Adjust size of the circle here
+    const strokeWidth = 8;
+    const radius = (size - strokeWidth) / 2;
+    const circumference = radius * 2 * Math.PI;
+    const strokeDashoffset = circumference - (progress / 100) * circumference;
+    // ------------------------------
+
   const deadline = campaign.deadline
     ? new Date(campaign.deadline).toLocaleDateString(
         "en-US",
@@ -113,7 +121,12 @@ export default async function CampaignPage({
           {/* ================= STORY ================= */}
 
           <div>
+            {/* Title */}
+            <h1 className="mb-6 text-xl font-bold leading-tight tracking-tight text-[#111c2d] sm:text-2xl">
+              {campaign.title}
+            </h1>
             <div className="relative aspect-[16/7] overflow-hidden rounded-[16px] bg-gray-100 mb-10">
+            
           {imageUrl ? (
             // Use the already-normalized campaign URL directly here. The
             // campaign cards use the same URL successfully; avoiding the
@@ -151,97 +164,35 @@ export default async function CampaignPage({
               </div>
             </div>
 
-            {/* Title */}
-
-            <h1 className="mt-6 text-3xl font-bold leading-tight tracking-tight text-[#111c2d] sm:text-4xl">
-              {campaign.title}
-            </h1>
-
             {/* Story */}
 
             <section className="mt-10">
-              <h2 className="text-xl font-bold text-[#111c2d]">
+              {/* <h2 className="text-xl font-bold text-[#111c2d]">
                 About this campaign
-              </h2>
+              </h2> */}
 
-              <p className="mt-5 whitespace-pre-line text-base leading-8 text-[#5a6a85]">
-                {campaign.description}
+              <p className="mt-5 whitespace-pre-line text-base leading-8 border-t border-[#e0e6eb] pt-4 text-[#5a6a85]">
+                {campaign.story}
               </p>
             </section>
 
+            {/* Donate */}
+
+              <Link
+                  href={`/checkout?campaign=${campaign.id}&title=${encodeURIComponent(
+                    campaign.title
+                  )}`}
+                  className="mt-7 block w-full rounded-full bg-transparent border border-grey-500 px-6 py-3.5 text-center text-sm font-semibold text-grey-500 transition-colors"
+                >
+                  Donate to this campaign
+              </Link>
+              {/* Share */}
+            
+                  <ShareCampaign title={campaign.title} />
+
             {/* Campaign information */}
 
-            <section className="mt-12 border-t border-[#e0e6eb] pt-8">
-              <h2 className="text-lg font-bold text-[#111c2d]">
-                Campaign information
-              </h2>
-
-              <div className="mt-6 grid gap-6 sm:grid-cols-2">
-
-                <div>
-                  <p className="text-xs text-gray-400">
-                    Fundraiser
-                  </p>
-
-                  <p className="mt-1 text-sm font-medium text-[#111c2d]">
-                    {fundraiserName}
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-xs text-gray-400">
-                    Goal
-                  </p>
-
-                  <p className="mt-1 text-sm font-medium text-[#111c2d]">
-                    ${campaign.goal.toLocaleString()}
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-xs text-gray-400">
-                    Raised
-                  </p>
-
-                  <p className="mt-1 text-sm font-medium text-[#111c2d]">
-                    ${campaign.raised_amount.toLocaleString()}
-                  </p>
-                </div>
-
-                {deadline && (
-                  <div>
-                    <p className="text-xs text-gray-400">
-                      Deadline
-                    </p>
-
-                    <p className="mt-1 text-sm font-medium text-[#111c2d]">
-                      {deadline}
-                    </p>
-                  </div>
-                )}
-
-                <div>
-                  <p className="text-xs text-gray-400">
-                    Status
-                  </p>
-
-                  <p className="mt-1 text-sm font-medium capitalize text-[#111c2d]">
-                    {campaign.status}
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-xs text-gray-400">
-                    Contributors
-                  </p>
-
-                  <p className="mt-1 text-sm font-medium text-[#111c2d]">
-                    {campaign.number_of_contributors.toLocaleString()}
-                  </p>
-                </div>
-
-              </div>
-            </section>
+            
 
             {/* ================= DONATIONS ================= */}
 
@@ -298,39 +249,64 @@ export default async function CampaignPage({
 
                 {/* Raised */}
 
-                <div className="flex items-end justify-between gap-4">
-                  <div>
+                <div className="flex flex-row items-center justify-between gap-4">
+                  {/* Progress */}
+
+                  <div className="relative basis-1/2 flex items-center justify-center w-24 h-24 mt-5">
+                    <svg
+                      className="w-full h-full transform -rotate-90"
+                      viewBox={`0 0 ${size} ${size}`}
+                    >
+                      {/* Background Track Circle */}
+                      <circle
+                        className="text-gray-100 dark:text-gray-800"
+                        stroke="currentColor"
+                        fill="transparent"
+                        strokeWidth={strokeWidth}
+                        cx={size / 2}
+                        cy={size / 2}
+                        r={radius}
+                      />
+
+                      {/* Progress Circle */}
+                      <circle
+                        className="text-[#01A14B]"
+                        stroke="currentColor"
+                        fill="transparent"
+                        strokeWidth={strokeWidth}
+                        strokeLinecap="round"
+                        strokeDasharray={circumference}
+                        strokeDashoffset={strokeDashoffset}
+                        cx={size / 2}
+                        cy={size / 2}
+                        r={radius}
+                      />
+                    </svg>
+
+                    {/* Center Text */}
+                    <span className="absolute text-sm font-semibold text-gray-700 dark:text-gray-300">
+                      {progress}%
+                    </span>
+                  </div>
+                  <div className="basis-2/3">
                     <p className="text-3xl font-bold tracking-tight text-[#111c2d]">
-                      ${campaign.raised_amount.toLocaleString()}
+                      ${campaign.raised_amount.toLocaleString()} raised 
                     </p>
 
                     <p className="mt-1 text-sm text-[#5a6a85]">
-                      raised of ${campaign.goal.toLocaleString()} goal
+                      of ${campaign.goal.toLocaleString()} goal
                     </p>
                   </div>
 
-                  <span className="text-sm font-semibold text-[#5a6a85]">
-                    {progress}%
-                  </span>
+                  
                 </div>
 
-                {/* Progress */}
-
-                <div className="mt-5 h-2 overflow-hidden rounded-full bg-gray-100">
-                  <div
-                    className="h-full rounded-full bg-[#01A14B] transition-all"
-                    style={{
-                      width: `${progress}%`,
-                    }}
-                  />
-                </div>
+                
 
                 {/* Remaining */}
 
                 <div className="mt-3 flex justify-between text-xs text-gray-400">
-                  <span>
-                    ${campaign.raised_amount.toLocaleString()} raised
-                  </span>
+                  
 
                   <span>
                     ${Math.max(
@@ -352,11 +328,7 @@ export default async function CampaignPage({
                   Donate to this campaign
                 </Link>
 
-                {/* Share */}
-
-                <ShareCampaign title={campaign.title} />
-
-                {/* Deadline */}
+                
 
                 {deadline && (
                   <p className="mt-6 text-center text-xs text-gray-400">
